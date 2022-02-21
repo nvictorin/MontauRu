@@ -7,9 +7,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-    private TextView tv_test;
-    private TextView tv_resultat;
-    private testDAO unTestDAO;
+    private TextView tv_entree1;
+    private TextView tv_entree2;
+    private TextView tv_plat1;
+    private TextView tv_plat2;
+    private TextView tv_dessert1;
+    private TextView tv_dessert2;
+
+    private long idEntree1;
+    private long idPlat1;
+    private long idDessert1;
+    private long idEntree2;
+    private long idPlat2;
+    private long getIdDessert2;
+
+    private entreeDAO unEntreeDAO;
+    private platDAO unPlatDAO;
+    private dessertDAO unDessertDAO;
+    private menuDAO unMenuDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -17,11 +32,27 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_test = findViewById(R.id.tv_test);
-        tv_resultat = findViewById(R.id.tv_resultat);
+        tv_entree1 = findViewById(R.id.tv_entree1);
+        tv_entree2 = findViewById(R.id.tv_entree2);
+        tv_plat1 = findViewById(R.id.tv_plat1);
+        tv_plat2 = findViewById(R.id.tv_plat2);
+        tv_dessert1 = findViewById(R.id.tv_dessert1);
+        tv_dessert2 = findViewById(R.id.tv_dessert2);
 
-        unTestDAO = new testDAO(this);
-        tv_resultat.setText(unTestDAO.getTest(1).getNom());
+        unMenuDAO = new menuDAO(this);
+        unEntreeDAO = new entreeDAO(this);
+        unPlatDAO = new platDAO(this);
+        unDessertDAO = new dessertDAO(this);
+
+        //tv_entree1.setText(unEntreeDAO.getEntree(unMenuDAO.getMenu(1).getIdEntree()).getNom());
+        tv_entree1.setText(unEntreeDAO.getEntree(1).getNom());
+        //tv_entree2.setText(unEntreeDAO.getEntree(unMenuDAO.getMenu(2).getIdEntree()).getNom());
+
+        //tv_plat1.setText(unPlatDAO.getPlat(unMenuDAO.getMenu(1).getIdPlat()).getNom());
+        //tv_plat2.setText(unPlatDAO.getPlat(unMenuDAO.getMenu(2).getIdPlat()).getNom());
+
+        //tv_dessert1.setText(unDessertDAO.getDessert(unMenuDAO.getMenu(1).getIdDessert()).getNom());
+        //tv_dessert2.setText(unDessertDAO.getDessert(unMenuDAO.getMenu(2).getIdDessert()).getNom());
 
     }
 }
