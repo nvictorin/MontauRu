@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class entreeDAO
 {
-    private static String base = "BDTodoList";
+    private static String base = "BDEntree";
     private static int version = 1;
     private BdSQLiteOpenHelper accesBD;
 
@@ -36,10 +36,10 @@ public class entreeDAO
         Cursor curseur;
         String req = "select * from entree;";
         curseur = accesBD.getReadableDatabase().rawQuery(req,null);
-        return cursorToTestArrayList(curseur);
+        return cursorToEntreeArrayList(curseur);
     }
 
-    private ArrayList<Entree> cursorToTestArrayList(Cursor curseur)
+    private ArrayList<Entree> cursorToEntreeArrayList(Cursor curseur)
     {
         ArrayList<Entree> listeEntree = new ArrayList<>();
         long id;

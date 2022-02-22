@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class dessertDAO
 {
-    private static String base = "BDTodoList";
+    private static String base = "BDDessert";
     private static int version = 1;
     private BdSQLiteOpenHelper accesBD;
 
@@ -36,10 +36,10 @@ public class dessertDAO
         Cursor curseur;
         String req = "select * from dessert;";
         curseur = accesBD.getReadableDatabase().rawQuery(req,null);
-        return cursorToTestArrayList(curseur);
+        return cursorToDessertArrayList(curseur);
     }
 
-    private ArrayList<Dessert> cursorToTestArrayList(Cursor curseur)
+    private ArrayList<Dessert> cursorToDessertArrayList(Cursor curseur)
     {
         ArrayList<Dessert> listeDessert = new ArrayList<>();
         long id;

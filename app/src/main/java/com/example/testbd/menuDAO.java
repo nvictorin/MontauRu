@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class menuDAO
 {
-    private static String base = "BDTodoList";
+    private static String base = "BDMenu";
     private static int version = 1;
     private BdSQLiteOpenHelper accesBD;
 
@@ -36,10 +36,10 @@ public class menuDAO
         Cursor curseur;
         String req = "select * from menu;";
         curseur = accesBD.getReadableDatabase().rawQuery(req,null);
-        return cursorToTestArrayList(curseur);
+        return cursorToMenuArrayList(curseur);
     }
 
-    private ArrayList<Menu> cursorToTestArrayList(Cursor curseur)
+    private ArrayList<Menu> cursorToMenuArrayList(Cursor curseur)
     {
         ArrayList<Menu> listeMenu = new ArrayList<>();
         long id;

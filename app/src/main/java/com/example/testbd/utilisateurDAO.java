@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class utilisateurDAO
 {
-    private static String base = "BDTodoList";
+    private static String base = "BDUtilisateur";
     private static int version = 1;
     private BdSQLiteOpenHelper accesBD;
 
@@ -36,10 +36,10 @@ public class utilisateurDAO
         Cursor curseur;
         String req = "select * from utilisateur;";
         curseur = accesBD.getReadableDatabase().rawQuery(req,null);
-        return cursorToTestArrayList(curseur);
+        return cursorToUtilisateurArrayList(curseur);
     }
 
-    private ArrayList<Utilisateur> cursorToTestArrayList(Cursor curseur)
+    private ArrayList<Utilisateur> cursorToUtilisateurArrayList(Cursor curseur)
     {
         ArrayList<Utilisateur> listeUtilisateur = new ArrayList<>();
         String email;

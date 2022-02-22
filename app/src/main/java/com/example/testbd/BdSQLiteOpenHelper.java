@@ -5,20 +5,20 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BdSQLiteOpenHelper extends SQLiteOpenHelper
 {
-    private String table_entree = "create table entree ("
-            + "id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE ,"
-            + "entree TEXT NOT NULL UNIQUE);";
+    private static final String table_entree = "create table entree ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "nom TEXT NOT NULL UNIQUE);";
 
-    private String table_plat = "create table plat ("
-            + "id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE,"
-            + "plat TEXT NOT NULL UNIQUE);";
+    private static final String table_plat = "create table plat ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "nom TEXT NOT NULL UNIQUE);";
 
-    private String table_dessert = "create table dessert ("
-            + "id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE,"
-            + "dessert TEXT NOT NULL UNIQUE);";
+    private static final String table_dessert = "create table dessert ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "nom TEXT NOT NULL UNIQUE);";
 
-    private String table_menu = "create table menu ("
-            + "id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT UNIQUE,"
+    private static final String table_menu = "create table menu ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "id_entree INTEGER NOT NULL,"
             + "id_plat INTEGER NOT NULL,"
             + "id_dessert INTEGER NOT NULL,"
@@ -26,8 +26,8 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper
             + "foreign key (id_plat) references plat(id),"
             + "foreign key (id_dessert) references dessert(id));";
 
-    private String table_utilisateur = "create table utilisateur ("
-            + "email TEXT PRIMARY KEY NOT NULL UNIQUE,"
+    private static final String table_utilisateur = "create table utilisateur ("
+            + "email TEXT NOT NULL UNIQUE,"
             + "mdp TEXT NOT NULL,"
             + "nom TEXT NOT NULL,"
             + "prenom TEXT NOT NULL,"
@@ -55,7 +55,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper
         db.execSQL("insert into utilisateur values('test','test','test','test',0)");
         //Création des Entrées
         db.execSQL("insert into entree (nom) values('Macedoine')");
-        db.execSQL("insert into entree (nom) values(null,'Jambon')");
+        db.execSQL("insert into entree (nom) values('Jambon')");
         //Création des Plats
         db.execSQL("insert into plat (nom) values('Pates carbonara')");
         db.execSQL("insert into plat (nom) values('Risotto aux champignons')");
@@ -65,8 +65,6 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper
         //Création des Menus
         db.execSQL("insert into menu (id_entree,id_plat,id_dessert) values(1,1,1)");
         db.execSQL("insert into menu (id_entree,id_plat,id_dessert) values(2,2,2)");
-
-
     }
 
 

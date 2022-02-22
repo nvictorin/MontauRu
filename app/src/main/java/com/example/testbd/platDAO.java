@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class platDAO
 {
-    private static String base = "BDTodoList";
+    private static String base = "BDPlat";
     private static int version = 1;
     private BdSQLiteOpenHelper accesBD;
 
@@ -36,10 +36,10 @@ public class platDAO
         Cursor curseur;
         String req = "select * from plat;";
         curseur = accesBD.getReadableDatabase().rawQuery(req,null);
-        return cursorToTestArrayList(curseur);
+        return cursorToPlatArrayList(curseur);
     }
 
-    private ArrayList<Plat> cursorToTestArrayList(Cursor curseur)
+    private ArrayList<Plat> cursorToPlatArrayList(Cursor curseur)
     {
         ArrayList<Plat> listePlat = new ArrayList<>();
         long id;

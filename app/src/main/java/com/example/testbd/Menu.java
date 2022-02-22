@@ -7,20 +7,20 @@ public class Menu
     private long id_plat;
     private long id_dessert;
 
-    public Menu(long id, long id_e, long id_p, long id_m)
+    public Menu(long id, long id_e, long id_p, long id_d)
     {
         this.id = id;
         this.id_entree = id_e;
         this.id_plat = id_p;
-        this.id_dessert = id_m;
+        this.id_dessert = id_d;
     }
 
-    public Menu(long id_e, long id_p, long id_m)
+    public Menu(long id_e, long id_p, long id_d)
     {
         this.id = -1;
         this.id_entree = id_e;
         this.id_plat = id_p;
-        this.id_dessert = id_m;
+        this.id_dessert = id_d;
     }
 
     public long getId() { return id; }

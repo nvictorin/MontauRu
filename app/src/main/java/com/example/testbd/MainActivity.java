@@ -14,13 +14,6 @@ public class MainActivity extends AppCompatActivity
     private TextView tv_dessert1;
     private TextView tv_dessert2;
 
-    private long idEntree1;
-    private long idPlat1;
-    private long idDessert1;
-    private long idEntree2;
-    private long idPlat2;
-    private long getIdDessert2;
-
     private entreeDAO unEntreeDAO;
     private platDAO unPlatDAO;
     private dessertDAO unDessertDAO;
@@ -44,15 +37,14 @@ public class MainActivity extends AppCompatActivity
         unPlatDAO = new platDAO(this);
         unDessertDAO = new dessertDAO(this);
 
-        //tv_entree1.setText(unEntreeDAO.getEntree(unMenuDAO.getMenu(1).getIdEntree()).getNom());
-        tv_entree1.setText(unEntreeDAO.getEntree(1).getNom());
-        //tv_entree2.setText(unEntreeDAO.getEntree(unMenuDAO.getMenu(2).getIdEntree()).getNom());
+        tv_entree1.setText(unEntreeDAO.getEntree(unMenuDAO.getMenu(1).getIdEntree()).getNom());
+        tv_entree2.setText(unEntreeDAO.getEntree(unMenuDAO.getMenu(2).getIdEntree()).getNom());
 
-        //tv_plat1.setText(unPlatDAO.getPlat(unMenuDAO.getMenu(1).getIdPlat()).getNom());
-        //tv_plat2.setText(unPlatDAO.getPlat(unMenuDAO.getMenu(2).getIdPlat()).getNom());
+        tv_plat1.setText(unPlatDAO.getPlat(unMenuDAO.getMenu(1).getIdPlat()).getNom());
+        tv_plat2.setText(unPlatDAO.getPlat(unMenuDAO.getMenu(2).getIdPlat()).getNom());
 
-        //tv_dessert1.setText(unDessertDAO.getDessert(unMenuDAO.getMenu(1).getIdDessert()).getNom());
-        //tv_dessert2.setText(unDessertDAO.getDessert(unMenuDAO.getMenu(2).getIdDessert()).getNom());
+        tv_dessert1.setText(unDessertDAO.getDessert(unMenuDAO.getMenu(1).getIdDessert()).getNom());
+        tv_dessert2.setText(unDessertDAO.getDessert(unMenuDAO.getMenu(2).getIdDessert()).getNom());
 
     }
 }
