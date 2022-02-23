@@ -1,7 +1,12 @@
 package com.example.testbd;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -10,6 +15,7 @@ public class entreeDAO
     private static String base = "BDEntree";
     private static int version = 1;
     private BdSQLiteOpenHelper accesBD;
+    private static SQLiteDatabase bd;
 
     public entreeDAO(Context ct)
     {
@@ -54,5 +60,34 @@ public class entreeDAO
             curseur.moveToNext();
         }
         return listeEntree;
+    }
+
+    public void insertEntree(Entree uneEntree)
+    {
+        try
+        {
+            bd = accesBD.getWritableDatabase();
+            String req = "insert into entree (nom) values ('" + uneEntree.getNom() + "');";
+            bd.execSQL(req);
+        }
+        catch (SQLiteConstraintException e)
+        {
+            Log.d(TAG, "insertEntree: erreur");
+        }
+    }
+
+    public void deleteEntree(Entree monEntree)
+    {
+        try
+        {
+            bd = accesBD.getWritableDatabase();
+            String req = "delete from entree where 'id' = " + monEntree.getId();
+            bd.close();
+            accesBD.onUpgrade(bd,1, 2);
+        }
+        catch(SQLiteConstraintException e)
+        {
+            Log.d(TAG, "deleteEntree: erreur delete entree");
+        }
     }
 }

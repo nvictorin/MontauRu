@@ -2,22 +2,26 @@ package com.example.testbd;
 
 public class Menu
 {
+    private static long count = 0;
     private long id;
+    private String nom;
     private long id_entree;
     private long id_plat;
     private long id_dessert;
 
-    public Menu(long id, long id_e, long id_p, long id_d)
+    public Menu(long id, String n,long id_e, long id_p, long id_d)
     {
         this.id = id;
+        this.nom = n;
         this.id_entree = id_e;
         this.id_plat = id_p;
         this.id_dessert = id_d;
     }
 
-    public Menu(long id_e, long id_p, long id_d)
+    public Menu(String n, long id_e, long id_p, long id_d)
     {
-        this.id = -1;
+        this.setId(++count);
+        this.nom = n;
         this.id_entree = id_e;
         this.id_plat = id_p;
         this.id_dessert = id_d;
@@ -25,6 +29,8 @@ public class Menu
 
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
+    public String getNom() { return nom; }
+    public void setNom(String n) { this.nom = n;}
     public long getIdEntree() { return id_entree; }
     public void setIdEntree(long id_e) { this.id_entree = id_e; }
     public long getIdPlat() { return id_plat; }
@@ -34,29 +40,53 @@ public class Menu
 
     public void creerUnMenu() //Evenement onClick du bouton valider dans la vue de création d'un menu
     {
+        menuDAO unMenuDAO;
+        entreeDAO uneEntreeDAO;
+        platDAO unPlatDAO;
+        dessertDAO unDessertDAO;
         //Entree entree = null;     //Création d'une entrée vide qu'on utilisera plus tard
         //Plat plat = null;         //Création d'un plat vide qu'on utilisera plus tard
         //Dessert dessert = null;   //Création d'un dessert vide qu'on utilisera plus tard
+        //Menu menu = null;         //Création d'un menu vide qu'on utilisera plus tard
 
         //Si Spinner Entree "s_…" (nom au choix) n'est pas vide
             //Alors entree prend la valeur du spinner
+            //Si Spinner Entree "s_…" == "Autre"    Evenement onChange() sur le Spinner "s_…"
+                //Alors fais apparaitre un EditText "et_…" (nom au choix)
+                //Et un Button "Créer une entrée" "b_…" (nom au choix)
+                //Si Button "b…" cliqué
+                    //Appel creerUneEntree();
         //Sinon afficher en rouge « Veuillez sélectionner une entrée. » en-dessous ou au-dessus du Spinner
 
         //Si Spinner Plat "s_…" (nom au choix) n'est pas vide
             //Alors plat prend la valeur du spinner
+            //Si Spinner Plat "s_…" == "Autre"    Evenement onChange() sur le Spinner "s_…"
+                //Alors fais apparaitre un EditText "et_…" (nom au choix)
+                //Et un Button "Créer un plat" "b_…" (nom au choix)
+                //Si Button "b…" cliqué
+                    //Appel creerUnPlat();
         //Sinon afficher en rouge « Veuillez sélectionner un plat. » en-dessous ou au-dessus du Spinner
 
         //Si Spinner Dessert "s_…" (nom au choix) n'est pas vide
             //Alors dessert prend la valeur du spinner
+            //Si Spinner Dessert "s_…" == "Autre"    Evenement onChange() sur le Spinner "s_…"
+                //Alors fais apparaitre un EditText "et_…" (nom au choix)
+                //Et un Button "Créer un dessert" "b_…" (nom au choix)
+                //Si Button "b…" cliqué
+                    //Appel creerUnDessert();
         //Sinon afficher en rouge « Veuillez sélectionner un dessert. » en-dessous ou au-dessus du Spinner
 
         //Si entree != null && plat != null && dessert != null
-            //Alors Menu(entree.getId(),plat.getId(),dessert.getId());
+            //Alors Menu menu = new Menu(entree.getId(),plat.getId(),dessert.getId());
+            //menu.nom = uneEntreeDAO.getEntree(menu.getIdEntree()).getNom() + " / "
+            //         + unPlatDAO.getPlat(menu.getIdPlat()).getNom() + " / "
+            //         + unDessertDAO.getDessert(menu.getIdDessert()).getNom();
+            //unMenuDAO.insertMenu(Menu menu);
     }
 
     @Override
     public String toString()
     {
-        return "Menu[id="+id+", id_entree="+id_entree+", id_plat="+id_plat+", id_dessert="+id_dessert+"]";
+        return "Menu[id="+id+", nom="+nom+", id_entree="+id_entree+", id_plat="+id_plat+", id_dessert="+id_dessert+"]";
     }
 }

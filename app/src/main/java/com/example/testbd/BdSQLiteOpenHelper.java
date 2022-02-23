@@ -19,6 +19,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper
 
     private static final String table_menu = "create table menu ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + "nom TEXT NOT NULL UNIQUE,"
             + "id_entree INTEGER NOT NULL,"
             + "id_plat INTEGER NOT NULL,"
             + "id_dessert INTEGER NOT NULL,"
@@ -53,18 +54,6 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper
         //Création des Utilisateurs
         db.execSQL("insert into utilisateur values('admin','admin','admin','admin',1)");
         db.execSQL("insert into utilisateur values('test','test','test','test',0)");
-        //Création des Entrées
-        db.execSQL("insert into entree (nom) values('Macedoine')");
-        db.execSQL("insert into entree (nom) values('Jambon')");
-        //Création des Plats
-        db.execSQL("insert into plat (nom) values('Pates carbonara')");
-        db.execSQL("insert into plat (nom) values('Risotto aux champignons')");
-        //Création des Desserts
-        db.execSQL("insert into dessert (nom) values('Fondant au chocolat')");
-        db.execSQL("insert into dessert (nom) values('Yaourt nature')");
-        //Création des Menus
-        db.execSQL("insert into menu (id_entree,id_plat,id_dessert) values(1,1,1)");
-        db.execSQL("insert into menu (id_entree,id_plat,id_dessert) values(2,2,2)");
     }
 
 

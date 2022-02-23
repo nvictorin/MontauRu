@@ -2,6 +2,7 @@ package com.example.testbd;
 
 public class Entree
 {
+    private static long count = 0;
     private long id;
     private String nom;
 
@@ -13,7 +14,7 @@ public class Entree
 
     public Entree(String n)
     {
-        this.id = -1;
+        this.setId(++count);
         this.nom = n;
     }
 
@@ -21,6 +22,14 @@ public class Entree
     public void setId(long id) { this.id = id; }
     public String getNom() { return nom; }
     public void setNom(String n) { this.nom = n; }
+
+    public void creerUneEntree() //Evenement onClick du bouton valider dans la vue de création d'un menu
+    {
+        //Entree entree = null;     //Création d'une entrée vide qu'on utilisera plus tard
+        //String nomEntree = ...;       //Récupère la valeur du EditText liée à l'entrée "et_…" (nom au choix)
+        //Entree uneEntree = new Entree(nomEntree);
+        //insertEntree(uneEntree);
+    }
 
     @Override
     public String toString()
