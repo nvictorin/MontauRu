@@ -84,7 +84,39 @@ public class Menu
             //unMenuDAO.insertMenu(Menu menu);
     }
 
-    @Override
+    public void ajouterUnMenu() //Evenement onClick du bouton valider dans la vue de sélection des menus
+    {
+        entreeDAO uneEntreeDAO;
+        platDAO unPlatDAO;
+        dessertDAO unDessertDAO;
+        //Menu menu1 = null;         //Création d'un menu vide qu'on utilisera plus tard
+        //Menu menu2 = null;         //Création d'un menu vide qu'on utilisera plus tard
+
+        //Si Spinner Menu 1 "s_…" (nom au choix) && Spinner Menu 2 "s_…" (nom au choix) ne sont pas vides
+            //Alors on récupére la valeur active du Spinner Menu 1 "s_…"
+                //menu1 = s_….getSelectedItem()
+                //Alors le TextView "tv_…" (nom au choix) de l'entrée du menu 1 prend la valeur de l'entrée du menu dans le Spinner
+                    //tv_… = unEntreeDAO.getEntree(menu1.getIdEntree()).getNom();
+                //Alors le TextView "tv_…" (nom au choix) du plat du menu 1 prend la valeur du plat du menu dans le Spinner
+                    //tv_… = unPlatDAO.getPlat(menu1.getIdPlat()).getNom();
+                //Alors le TextView "tv_…" (nom au choix) du dessert du menu 1 prend la valeur du dessert du menu dans le Spinner
+                    //tv_… = unDessertDAO.getDessert(menu1.getIdDessert()).getNom();
+            //Si Spinner Menu "s_…" (nom au choix) du menu 2 n'est pas vide
+                //menu2 = s_….getSelectedItem()
+                //Alors le TextView "tv_…" (nom au choix) de l'entrée du menu 2 prend la valeur de l'entrée du menu dans le Spinner
+                    //tv_… = unEntreeDAO.getEntree(menu2.getIdEntree()).getNom();
+                //Alors le TextView "tv_…" (nom au choix) du plat du menu 2 prend la valeur du plat du menu dans le Spinner
+                    //tv_… = unPlatDAO.getPlat(menu2.getIdPlat()).getNom();
+                //Alors le TextView "tv_…" (nom au choix) du dessert du menu 2 prend la valeur du dessert du menu dans le Spinner
+                    //tv_… = unDessertDAO.getDessert(menu2.getIdDessert()).getNom();
+        //Sinon vérifie quel(s) Spinner(s) est(sont) vide(s)
+            //Si Spinner Menu 1 "s_…" (nom au choix) est vide
+                //Alors affiche en rouge "Veuillez sélectionner un menu." en-dessous ou au-dessus du Spinner
+            //Si Spinner Menu 2 "s_…" (nom au choix) est vide
+                //Alors affiche en rouge "Veuillez sélectionner un menu." en-dessous ou au-dessus du Spinner
+    }
+
+        @Override
     public String toString()
     {
         return "Menu[id="+id+", nom="+nom+", id_entree="+id_entree+", id_plat="+id_plat+", id_dessert="+id_dessert+"]";
