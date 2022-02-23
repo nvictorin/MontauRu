@@ -32,6 +32,28 @@ public class Menu
     public long getIdDessert() { return id_dessert; }
     public void setIdDessert(long id_d) { this.id_dessert = id_d; }
 
+    public void creerUnMenu() //Evenement onClick du bouton valider dans la vue de création d'un menu
+    {
+        //Entree entree = null;     //Création d'une entrée vide qu'on utilisera plus tard
+        //Plat plat = null;         //Création d'un plat vide qu'on utilisera plus tard
+        //Dessert dessert = null;   //Création d'un dessert vide qu'on utilisera plus tard
+
+        //Si Spinner Entree "s_…" (nom au choix) n'est pas vide
+            //Alors entree prend la valeur du spinner
+        //Sinon afficher en rouge « Veuillez sélectionner une entrée. » en-dessous ou au-dessus du Spinner
+
+        //Si Spinner Plat "s_…" (nom au choix) n'est pas vide
+            //Alors plat prend la valeur du spinner
+        //Sinon afficher en rouge « Veuillez sélectionner un plat. » en-dessous ou au-dessus du Spinner
+
+        //Si Spinner Dessert "s_…" (nom au choix) n'est pas vide
+            //Alors dessert prend la valeur du spinner
+        //Sinon afficher en rouge « Veuillez sélectionner un dessert. » en-dessous ou au-dessus du Spinner
+
+        //Si entree != null && plat != null && dessert != null
+            //Alors Menu(entree.getId(),plat.getId(),dessert.getId());
+    }
+
     @Override
     public String toString()
     {

@@ -41,8 +41,8 @@ public class Utilisateur
     {
         //-------------------------------VARIABLES------------------------------------
         //Récupération des valeurs des champs de saisie de l'email et mdp
-        //mail = ...;
-        //password = ...;
+        //mail = ...;           //Récupère la valeur du EditText liée à l'email "et_…" (nom au choix)
+        //password = ...;       //Récupère la valeur du EditText liée au mot de passe "et_…" (nom au choix)
         //-------------------------------TRAITEMENT------------------------------------
         //Si (mail == email de l'utilisateur) && (password == mdp de l'utilisateur)
             //Alors affiche "Connexion établie" sur un pop up ephémere (j'ai oublié le nom)
@@ -56,10 +56,10 @@ public class Utilisateur
     {
         //-------------------------------VARIABLES------------------------------------
         //Récupération des valeurs des champs de saisie de l'email et mdp
-        //mail = ...;
-        //password = ...;
-        //nom = ...;
-        //prenom = ...;
+        //mail = ...;       //Récupère la valeur du EditText liée à l'email "et_…" (nom au choix)
+        //password = ...;   //Récupère la valeur du EditText liée au mot de passe "et_…" (nom au choix)
+        //nom = ...;        //Récupère la valeur du EditText liée au nom "et_…" (nom au choix)
+        //prenom = ...;     //Récupère la valeur du EditText liée au prénom "et_…" (nom au choix)
         //-------------------------------TRAITEMENT------------------------------------
         //Si mail déjà utilisé pour un compte
             //Alors affiche "Cette adresse email est déjà utilisée"
