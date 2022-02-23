@@ -116,6 +116,29 @@ public class Menu
                 //Alors affiche en rouge "Veuillez sélectionner un menu." en-dessous ou au-dessus du Spinner
     }
 
+    public void supprimerUnMenu() //Evenement onClick du Button "Supprimer"
+    {
+        menuDAO unMenuDAO;
+        //Menu menu = null;         //Création d'un menu vide qu'on utilisera plus tard
+
+        //A REDEFINIR PARCE QUE LES MAQUETTES DE SUPPRIMER UN MENU SONT PAS RACCORD AVEC CE QU'ON VEUT
+            //Nous ce qu'on veut c'est supprimer le menu de la base de données
+            //Alors que les maquettes indiquent que c'est supprimer le menu d'un jour de la semaine et pas de la base de données
+        //PROPOSITION POUR REGLER CE PROBLEME
+            //Quand on clique sur un Button "Supprimer un menu"
+                //Ca nous met une interface avec un Spinner de menu
+                //Et un Button "Supprimer" pour supprimer le menu qui sera sélectionner dans le spinner
+                //Quand on clique sur le Button "Supprimer"
+                    //Si le Spinner Menu "s_…" (nom au choix) n'est pas vide
+                        //Appel la méthode deleteMenu(menu) de menuDAO
+                        //Supprime le menu de la base de données
+                        //Mais également de l'ArrayList Menu pour le retirer du Spinner
+                    //Sinon affiche en rouge "Veuillez sélectionner un menu." en-dessous ou au-dessus du Spinner
+
+        //unMenuDAO.deleteMenu(menu);   //Supprimer le menu
+
+    }
+
         @Override
     public String toString()
     {
